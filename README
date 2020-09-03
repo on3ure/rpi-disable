@@ -1,0 +1,16 @@
+
+# Disable Wifi
+echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
+
+# Disable Bluetooth
+echo "dtoverlay=pi3-disable-bt" | sudo tee -a /boot/config.txt
+sudo systemctl disable hciuart
+
+#disable ACT and PWR LEDs
+echo "dtparam=act_led_trigger=none" | sudo tee -a /boot/config.txt
+echo "dtparam=pwr_led_trigger=none" | sudo tee -a /boot/config.txt
+
+#disable ethernet port LEDs
+echo "dtparam=eth0_led=4" | sudo tee -a /boot/config.txt
+echo "dtparam=eth1_led=4" | sudo tee -a /boot/config.txt
+
